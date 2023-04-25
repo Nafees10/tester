@@ -1,0 +1,17 @@
+.dub
+dub.selections.json
+docs.json
+__dummy.html
+docs/
+/tester
+tester.so
+tester.dylib
+tester.dll
+tester.a
+tester.lib
+tester-test-*
+*.exe
+*.pdb
+*.o
+*.obj
+*.lst
