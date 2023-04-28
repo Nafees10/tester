@@ -33,6 +33,7 @@ struct TaskConfig{
 	string exec; /// exec command
 	bool testsAutodetect = true; /// whether to autodetect test cases
 	Test[] tests; /// explicitly added tests
+	string path = "./"; /// path for .in and .out files for tests
 
 	/// constructor, reads config from file
 	this (string filename){
@@ -44,6 +45,7 @@ struct TaskConfig{
 		this.name = this.lang = this.compile = this.exec = null;
 		testsAutodetect = true;
 		tests = null;
+		path = "./";
 	}
 
 	/// Reads config file.
@@ -56,6 +58,7 @@ struct TaskConfig{
 		lang = root.getTagValue!string("lang", null);
 		compile = root.getTagValue!string("compile", null);
 		exec = root.getTagValue!string("exec", null);
+		path = root.getAttribute!string("path", "./");
 
 		if (root.tags["test"].length)
 			testsAutodetect = false;
